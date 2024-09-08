@@ -7,3 +7,7 @@ print("Hello World!\nHello World!\nHello World!\n")
 print("Hello" + " " + "Black" + " " + "Mafia")
 
 print("Hello " + input("What is your name?") + "!")
+
+
+name = input("What is your name?\n")
+print(len(name))
