@@ -1,15 +1,31 @@
 print("Welcome to Pizzeria Cafe")
-size = int(input("Enter size(Small, Medium or Large): "))
-add_pepperoni = input("Want to add some pepperoni? (Y or N): ")
-extra_cheese = input("Want to some extra cheese? (Y or N): ")
+prices = {
+    "Small": 15,
+    "Medium": 20,
+    "Large" : 25
+}
 
-Small = "$15"
-Medium = "$20"
-Large = "$25"
+pepperoni_prices = {
+    "Small": 2,
+    "Medium": 3,
+    "Large" : 3
+}
 
-pepperoni_for_small_pizza = "$2" 
-pepperoni_for_medium_or_large_pizza = "$3" 
+extra_cheese_price = 1
 
-extra_cheese_for_any_size = "$1"
+size = input("Enter size(Small, Medium or Large): ").capitalize()
 
-total = size + extra_cheese_for_any_size + pepperoni_for_small_pizza | pepperoni_for_medium_or_large_pizza
+add_pepperoni = input("Want to add some pepperoni? (Y or N): ").strip().upper()
+extra_cheese = input("Want to some extra cheese? (Y or N): ").strip().upper()
+
+total = prices.get(size, 0) 
+
+if add_pepperoni == 'Yes' or 'yes' or 'y' or 'Y':
+    total += pepperoni_prices.get(size, 0)
+
+if extra_cheese == 'Yes' or 'yes' or 'y' or 'Y':
+    total += extra_cheese_price
+
+print(f"Total bill for your order is: ${total}")
+
+print("Thank you for visiting")
