@@ -6,31 +6,24 @@ numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 l = int(input("How many letters you want in the password?\n"))
 s = int(input("How many symbols you want in the password?\n"))
 n = int(input("How many numbers you want in the password?\n"))
-
 # Easy Format
-# password = ""
-# for char in range(1, l+1):
-#     password += random.choice(letters)  
-#     password += random.choice(symbols)
-#     password += random.choice(numbers)  
-# print(password)
-
+password = ""
+for char in range(1, l+1):
+    password += random.choice(letters)  
+    password += random.choice(symbols)
+    password += random.choice(numbers)  
+print(f"Your password is: {password}")
 # Hard Format
 password_list = []
 for char in range(1, l+1):
     password_list.append(random.choice(letters))  
-for char in range(1, l+1):
     password_list += random.choice(symbols)
-for char in range(1, l+1):
     password_list += random.choice(numbers)
-    
 print(password_list)
 
 random.shuffle(password_list)
 print(password_list)
-
 password = ""
 for char in password_list:
     password += char
-
 print(f"Your password is: {password}")
